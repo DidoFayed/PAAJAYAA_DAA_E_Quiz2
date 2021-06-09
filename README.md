@@ -1,4 +1,4 @@
-# Math 24 Games Reports
+# The 24 Games Reports
 
 ##### Members:
 - Dido Fabian Fayed       
