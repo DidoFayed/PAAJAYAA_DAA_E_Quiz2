@@ -4,6 +4,24 @@
 
 /* implementation of a 24 game solver using depth first search algorithm
 given four cards, each card contains number 1 to 9 */
+using namespace std;
+
+struct card  
+{
+	double val;
+	string msg;
+};
+
+bool Solve24_rec(vector<card>& nums, string& solution);
+
+bool Solve24(vector<int>& nums, string& solution)
+{
+	vector<card> input;
+	for (int i = 0; i < nums.size(); ++i)
+		input.push_back({ (double) nums[i], to_string(nums[i]) });
+
+	return Solve24_rec(input, solution);
+}
 
 bool hasChar(string s, char c)
 {
