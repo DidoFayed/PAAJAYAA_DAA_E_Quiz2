@@ -127,6 +127,54 @@ bool compareDouble(double x, double y)
 }
 ```
 
+`Solve24_rec` is a function to find the right solution for the game with the implementation from Depth First Search using a recursive approach.
+
+```
+bool Solve24_rec(vector<card>& nums, string& solution)
+{
+	int n = nums.size();
+	if (n == 0)
+		return false;
+	else if (n == 1 && compareDouble(nums[0].val, 24.0))
+	{
+		solution = nums[0].msg; 
+		return true;
+	}
+	else if (n == 1)
+		return false;
+
+	for (int i = 0; i < n; ++i)
+		for (int j = i + 1; j < n; ++j)
+		{
+			card left = nums[i];
+			card right = nums[j];
+
+			vector<card> nums_rest;
+			for (int k = 0; k < n; ++k)
+				if (k != i && k != j)
+					nums_rest.push_back(nums[k]);
+
+			for (int k = 0; k < 6; ++k)
+			{
+				vector<card> temp = nums_rest;
+				if (k == 0) temp.push_back({ left.val + right.val, update_message(left.msg, right.msg, '+') });
+				else if (k == 1) temp.push_back({ left.val - right.val, update_message(left.msg, right.msg, '-') });
+				else if (k == 2) temp.push_back({ right.val - left.val, update_message(right.msg, left.msg, '-') });
+				else if (k == 3) temp.push_back({ left.val * right.val, update_message(left.msg, right.msg, '*') });
+				else if (k == 4 && right.val != 0) temp.push_back({ left.val / right.val, update_message(left.msg, right.msg, '/') });
+				else if (k == 5 && left.val != 0) temp.push_back({ right.val / left.val, update_message(left.msg, right.msg, '/') });
+
+				if (Solve24_rec(temp, solution))
+					return true;
+			}
+
+		}
+
+	return false;
+}
+```
+
+
 ### Output
 
 ![1623250116133](https://github.com/DidoFayed/PAAJAYAA_DAA_E_Quiz2/blob/main/ss/1623250116133.jpg)
