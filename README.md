@@ -11,7 +11,7 @@
 
 ### Project Description
 
-An implementation of 24 card games using depth first search algorithm with 4 input numbers. Each card contains a number 1 to 9. With 4 entered numbers, the 4 numbers must operated through some operators + (add), - (substract), / (divide), * (multiply), (, ) (bracket) to get 24 for the value.
+An implementation of 24 card games using Depth First Search algorithm with 4 input numbers. Each card contains a number 1 to 9. With 4 entered numbers, the 4 numbers must operated through some operators + (add), - (substract), / (divide), * (multiply), (, ) (bracket) to get 24 for the value.
 
 For the example,
 We have 2, 1, 3, 8 for the input numbers, the output will be shown 1 and the . It means that the calculation result of the formula is 24.
