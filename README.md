@@ -22,3 +22,34 @@ Explanation: (2-1) * 3 * 8
 We implement the depth first search algorithm in Search24_rec() function, where we use a recurrent approach. First we choose two numbers and try different operations for the solution. Then check if we can get 24 with the rest of the numbers and one of the result.
 
 ### Analysis
+Made implementation of a 24 game solver using depth first search. Given four cards, determine whether a solution exists and return the solution
+```c
+# include<iostream>
+# include<string>
+# include<vector>
+ 
+using namespace std;
+
+struct card  
+{
+    double val;
+    string msg;
+};
+ ```
+
+After define a `card`, a `value` and how this value is obtained, create recurrent `solve24` function that uses the remained numbers and the result from previous operation.  
+```c
+bool Solve24_rec(vector<card>& nums, string& solution);
+```
+The nums array contain four numbers from 1 to 9,  it will check if you can do arithmetic operations +, -, *, /, on these numbers and get twenty-four (24) as the result.
+  
+```c
+  bool Solve24(vector<int>& nums, string& solution)
+{
+    vector<card> input;
+    for (int i = 0; i < nums.size(); ++i)
+        input.push_back({ (double) nums[i], to_string(nums[i]) });
+ 
+    return Solve24_rec(input, solution);
+}
+```
