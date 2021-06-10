@@ -22,7 +22,7 @@ Explanation: (2-1) * 3 * 8
 We implement the depth first search algorithm in Search24_rec() function, where we use a recurrent approach. First we choose two numbers and try different operations for the solution. Then check if we can get 24 with the rest of the numbers and one of the result.
 
 ### Analysis
-Made implementation of a 24 game solver using depth first search. Given four cards, determine whether a solution exists and return the solution
+Made implementation of a 24 game solver using depth first search. Given four cards, determine whether a solution exists and return the solution. Here the code and analysis for this program:
 ```c
 # include<iostream>
 # include<string>
