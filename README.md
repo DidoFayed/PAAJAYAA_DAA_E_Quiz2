@@ -118,10 +118,17 @@ string update_message(string lhs, string rhs, char op)
 		cerr << "There is invalid operation" << endl;
 }
 ```
+Boolean function `compareDouble` is a function to check if 2 doubles are equal or not.
+```c
+bool compareDouble(double x, double y)
+{
+	int diff = x - y;
+	return diff < 1e-5 && -diff < 1e-5;
+}
+```
 
 ### Output
 
 ![1623250116133](https://github.com/DidoFayed/PAAJAYAA_DAA_E_Quiz2/blob/main/ss/1623250116133.jpg)
 
 ![1623250181163](https://github.com/DidoFayed/PAAJAYAA_DAA_E_Quiz2/blob/main/ss/1623250181163.jpg)
-
