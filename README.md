@@ -83,7 +83,7 @@ bool has_unbound_operator(string msg, string op)
 }
 ```
 `update_message` is a function to add operators, such as +, -, /, *, (, ) for the result. 
-```
+```c
 string update_message(string lhs, string rhs, char op)
 {
 	if (op == '+')
@@ -117,7 +117,7 @@ string update_message(string lhs, string rhs, char op)
 	else
 		cerr << "There is invalid operation" << endl;
 }
-```
+```c
 
 ### Output
 
