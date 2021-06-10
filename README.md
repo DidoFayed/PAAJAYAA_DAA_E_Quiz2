@@ -117,10 +117,11 @@ string update_message(string lhs, string rhs, char op)
 	else
 		cerr << "There is invalid operation" << endl;
 }
-```c
+```
 
 ### Output
 
 ![1623250116133](https://github.com/DidoFayed/PAAJAYAA_DAA_E_Quiz2/blob/main/ss/1623250116133.jpg)
 
 ![1623250181163](https://github.com/DidoFayed/PAAJAYAA_DAA_E_Quiz2/blob/main/ss/1623250181163.jpg)
+
