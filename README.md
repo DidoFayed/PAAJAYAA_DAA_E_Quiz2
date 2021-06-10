@@ -37,7 +37,7 @@ struct card
 };
  ```
 
-After define a `card`, a `value` and how this value is obtained, create recurrent `solve24` function that uses the remained numbers and the result from previous operation.  
+After define a `card`, a `value` and `msg` (how this value is obtained), create recurrent `solve24` function that uses the remained numbers and the result from previous operation.  
 ```c
 bool Solve24_rec(vector<card>& nums, string& solution);
 ```
@@ -51,5 +51,34 @@ The nums array contain four numbers from 1 to 9,  it will check if you can do ar
         input.push_back({ (double) nums[i], to_string(nums[i]) });
  
     return Solve24_rec(input, solution);
+}
+```
+This helper function `hasChar` to check if a string contains some char.
+```c
+bool hasChar(string s, char c)
+{
+	for (int i = 0; i < s.size(); ++i)
+		if (s[i] == c)
+			return true;
+	return false;
+}
+```
+This helper function `has_unbound_operator` to check if a string contains a certain char not enclosed by parenthesis.
+```c
+bool has_unbound_operator(string msg, string op)
+{
+	string s;
+	for (int i = 0; i < msg.size(); ++i)
+		if (!(isdigit(msg[i]) || msg[i] == ' '))
+			s += msg[i];
+	
+	bool res = false;
+	for (int j = 0; j < op.size(); ++j)
+		for (int k = 0; k < s.size(); ++k)
+			if (s[k] == '(')
+				k += 2;
+			else if (s[k] == op[j])
+				res = true;
+	return res;
 }
 ```
