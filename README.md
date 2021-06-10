@@ -82,3 +82,39 @@ bool has_unbound_operator(string msg, string op)
 	return res;
 }
 ```
+`update_message` is a function to add operators, such as +, -, /, *, (, ) for the result. 
+```
+string update_message(string lhs, string rhs, char op)
+{
+	if (op == '+')
+		return lhs + ' ' + op + ' ' + rhs;
+	else if (op == '-')
+	{
+		// if the right operand contains an unbounded minus sign
+		if (has_unbound_operator(rhs, "-"))
+			rhs = '(' + rhs + ')';
+		return lhs + ' ' + op + ' ' + rhs;
+	}
+	else if (op == '*')
+	{
+		if (has_unbound_operator(lhs, "+-"))
+			lhs = '(' + lhs + ')';
+		// need to add paranthensis if there is unbound plus or minus sign
+		if (has_unbound_operator(rhs, "+-"))
+			rhs = '(' + rhs + ')';
+		// need to add paranthesis if there is unbound plus or minus sign
+		return lhs + ' ' + op + ' ' + rhs;
+	}
+
+	else if (op == '/')
+	{
+		if (has_unbound_operator(lhs, "+-"))
+			lhs = '(' + lhs + ')';
+		if (has_unbound_operator(rhs, "+-/"))
+			rhs = '(' + rhs + ')';
+		return lhs + ' ' + op + ' ' + rhs;
+	}
+	else
+		cerr << "There is invalid operation" << endl;
+}
+```
