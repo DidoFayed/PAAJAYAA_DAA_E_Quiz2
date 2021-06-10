@@ -129,7 +129,7 @@ bool compareDouble(double x, double y)
 
 `Solve24_rec` is a function to find the right solution for the game with the implementation from Depth First Search using a recursive approach.
 
-```
+```c
 bool Solve24_rec(vector<card>& nums, string& solution)
 {
 	int n = nums.size();
